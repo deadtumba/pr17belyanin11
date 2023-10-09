@@ -65,7 +65,7 @@ public class MainActivity extends Activity implements OnClickListener {
             cv.put("name", name);
             cv.put("animal", animal);
             cv.put("height", height);
-            cv.put("weight", size);
+            cv.put("size", size);
             // вставляем запись и получаем ее ID
             long rowID = db.insert("mytable", null, cv);
             Log.d(LOG_TAG, "Rows id, ID = " + rowID);
@@ -83,7 +83,7 @@ public class MainActivity extends Activity implements OnClickListener {
                 int nameColIndex = c.getColumnIndex("name");
                 int animalColIndex = c.getColumnIndex("animal");
                 int heightColIndex = c.getColumnIndex("height");
-                int weightColIndex = c.getColumnIndex("weight");
+                int sizeColIndex = c.getColumnIndex("size");
 
                 do {
                     // получаем значения по номерам столбцов и пишем все в лог
@@ -92,7 +92,7 @@ public class MainActivity extends Activity implements OnClickListener {
                                     ", name = " + c.getString(nameColIndex) +
                                     ", animal = " + c.getString(animalColIndex) +
                                     ", height = " + c.getString(heightColIndex) +
-                                    ", weight = " + c.getString(weightColIndex));
+                                    ", weight = " + c.getString(sizeColIndex));
                     // переход на следующую строку
                     // а если следующей нет (текущая - последняя), то false - выходим из цикла
                 } while (c.moveToNext());
